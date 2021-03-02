@@ -1,0 +1,10 @@
+- CAMERA:
+  - 'rtsp://admin:admin@192.168.1.10:8554/live'
+- DETECTION:
+  - 'On'
+  - INFO
+  - 'On'
+  - 'On'
+  - 'On'
+- PURGE:
+  - '180'

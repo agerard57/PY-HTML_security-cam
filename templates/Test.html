@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Settings</title>
+    </head>
+
+    <body>
+    <h1>Change config file</h1>
+        <div>
+            <form method="POST" action="{{ url_for('home') }}">
+                <div>
+                    <label>[CAMERA]</label><br/>
+                    <label>videolive = </label><br/><br/>
+                    <input type="text" id="videolive" name="videolive">
+                </div>
+                <div>
+                    <label>[DETECTION]</label><br/>
+                    <label for="detection" >Detection</label>
+                    <select name="detect" id="detection">
+                        <option value="On">On</option>
+                        <option value="Off">Off</option>
+                    </select>
+                    <label for="detection" >On / Off</label><br/><br/>
+                </div>
+                <div>
+                    <label for="loglvl" >LogLevel</label>
+                    <select name="log" id="loglvl">
+                        <option value="INFO">INFO</option>
+                        <option value="WARNING">WARNING</option>
+                        <option value="DEBUG">DEBUG</option>
+                    </select>
+                    <label for="loglvl" >INFO / WARNING / DEBUG</label><br/><br/>
+                </div>
+                <div>
+                    <label for="streaming" >Streaming</label>
+                    <select name="stream" id="streaming">
+                        <option value="On">On</option>
+                        <option value="Off">Off</option>
+                    </select>
+                    <label for="streaming" >On / Off</label><br/><br/>
+                </div>
+                <div>
+                    <label for="recording" >Recording</label>
+                    <select name="record" id="recording">
+                        <option value="On">On</option>
+                        <option value="Off">Off</option>
+                    </select>
+                    <label for="recording" >On / Off</label><br/><br/>
+                </div>
+                <div>
+                    <label for="alerting" >Jeedom Alerting</label>
+                    <select name="alert" id="alerting">
+                        <option value="On">On</option>
+                        <option value="Off">Off</option>
+                    </select>
+                    <label for="alerting" >On / Off</label><br/><br/>
+                </div>
+                <div>
+                    <label>[PURGE]</label><br/>
+                    <label>RetentionPeriod = </label>
+                    <input type="text" id="retentionperiod" name="retentionperiod">
+                    <label> (nombre de jours)</label><br/><br/>
+                </div>
+                <div>
+                    <br/><input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        <div>
+            <br/><a href="home">Back</a>
+        </div>
+    <script>
+
+    </script>
+    </body>
+</html>
