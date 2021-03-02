@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styletimeline.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light menu">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/OOjs_UI_icon_camera.svg" width="30"
+                    height="30" class="d-inline-block align-top" alt="">
+                IP Camera
+            </a>
+        </nav>
+    </header>
+    <div class="container">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Settings</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title">Settings</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{{ url_for('home') }}">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <h4>CAMERA</h4><br />
+                                    <label>videolive = </label><br /><br />
+                                    <input type="text" id="videolive" name="videolive">
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>DETECTION</h4><br />
+                                    <label for="detection">Detection</label><br />
+                                    <select name="detect" id="detection">
+                                        <option value="On">On</option>
+                                        <option value="Off">Off</option>
+                                    </select>
+                                    <label for="detection">On / Off</label><br /><br />
+                                </li>
+                                <li class="list-group-item">
+                                    <label for="loglvl">LogLevel</label><br />
+                                    <select name="log" id="loglvl">
+                                        <option value="INFO">INFO</option>
+                                        <option value="WARNING">WARNING</option>
+                                        <option value="DEBUG">DEBUG</option>
+                                    </select>
+                                    <label for="loglvl">INFO / WARNING / DEBUG</label><br /><br />
+                                </li>
+                                <li class="list-group-item">
+                                    <label for="streaming">Streaming</label><br />
+                                    <select name="stream" id="streaming">
+                                        <option value="On">On</option>
+                                        <option value="Off">Off</option>
+                                    </select>
+                                    <label for="streaming">On / Off</label><br /><br />
+                                </li>
+                                <li class="list-group-item">
+                                    <label for="recording">Recording</label><br />
+                                    <select name="record" id="recording">
+                                        <option value="On">On</option>
+                                        <option value="Off">Off</option>
+                                    </select>
+                                    <label for="recording">On / Off</label><br /><br />
+                                </li>
+                                <li class="list-group-item">
+                                    <label for="alerting">Jeedom Alerting</label><br />
+                                    <select name="alert" id="alerting">
+                                        <option value="On">On</option>
+                                        <option value="Off">Off</option>
+                                    </select>
+                                    <label for="alerting">On / Off</label><br /><br />
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>PURGE</h4><br />
+                                    <label>RetentionPeriod = </label>
+                                    <input type="text" id="retentionperiod" name="retentionperiod">
+                                    <label> (nombre de jours)</label><br /><br />
+                                </li>
+                            </ul>
+                    <div class="modal-footer">
+                        <input class="btn btn-success" type="submit" value="Submit">
+
+                        <div class="text-center">
+                                <a href="/get_live"><input type="button" value="Live"></a>
+                        </div>
+                    </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <!--Modal-->
+        </div>
+    </div>
+    <div>
+        <article class="streamline">
+        <div class="vstream">
+            <div>
+              <img src="{{ url_for('background_process_test') }}" width="100%" height="100%" id="fluxvideo">
+            </div>
+        </div>
+        </article>
+        <div>
+            <button type="button" class='btn btn-default'>Live</button>
+        </div>
+        <article class="streamline">
+        <div class="timeline">
+            <label>17 / 02 / 2021</label>
+            <div class="sblock">
+                <video width="220" height="140" class="video">
+                    <source src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.avi') }}" type='video/mp4'>
+                </video>
+                <img src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.jpg') }}" width="220" height="140"><br /><br />
+            </div>
+            <label>20 / 02 / 2021</label>
+            <div class="sblock">
+                <video width="220" height="140" class="video">
+                    <source src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.avi') }}" type='video/mp4'>
+                </video>
+                <img src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.jpg') }}" width="220" height="140"><br /><br />
+            </div>
+            <div class="sblock">
+                <video width="220" height="140" class="video">
+                    <source src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.avi') }}" type='video/mp4'>
+                </video>
+                <img src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.jpg') }}" width="220" height="140"><br /><br />
+            </div>
+            <label>28 / 02 / 2021</label>
+            <div class="sblock">
+                <video width="220" height="140" class="video">
+                    <source src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.avi') }}" type='video/mp4'>
+                </video>
+                <img src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.jpg') }}" width="220" height="140"><br /><br />
+            </div>
+        </div>
+        </article>
+    </div>
+</body>
+
+</html>

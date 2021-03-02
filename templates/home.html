@@ -5,6 +5,7 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styletimeline.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -16,9 +17,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 
-<body>
+<body onload="initial('{{ detect }}', '{{ log }}', '{{ stream }}', '{{ record }}', '{{ jalert }}')">
     <header>
         <nav class="navbar navbar-light menu">
             <a class="navbar-brand" href="#">
@@ -45,7 +48,7 @@
                                 <li class="list-group-item">
                                     <h4>CAMERA</h4><br />
                                     <label>videolive = </label><br /><br />
-                                    <input type="text" id="videolive" name="videolive">
+                                    <input type="text" id="videolive" name="videolive" size="70" value="{{ vlive }}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <h4>DETECTION</h4><br />
@@ -92,7 +95,7 @@
                                 <li class="list-group-item">
                                     <h4>PURGE</h4><br />
                                     <label>RetentionPeriod = </label>
-                                    <input type="text" id="retentionperiod" name="retentionperiod">
+                                    <input type="text" id="retentionperiod" name="retentionperiod" value="{{ retperiod }}"/>
                                     <label> (nombre de jours)</label><br /><br />
                                 </li>
                             </ul>
@@ -100,7 +103,7 @@
                         <input class="btn btn-success" type="submit" value="Submit">
 
                         <div class="text-center">
-                            <button type="button" class="btn btn-default center" data-dismiss="modal">Close</button>
+                                <a href="/get_live"><input type="button" value="Live"></a>
                         </div>
                     </div>
                         </form>
@@ -112,16 +115,44 @@
         </div>
     </div>
     <div>
-        <img src="{{ url_for('video_feed') }}" width="40%" id="fluxvideo">
-    </div>
-    <div>
-        <button type="button" onclick="record()">Live</button>
-    </div>
-    <div class="timeline">
-        <video width="320" height="240" controls>
-            <source src="../../srv/img/20210217-053115-173589.avi" type='video/mp4'>
-        </video>
-        <img src="../../srv/img/20210217-053115-173589.jpg" width="20%">
+        <article class="streamline">
+
+            <div class="vstream">
+                <div>
+                    <img src="{{ url_for('video_feed') }}" width="100%" height="100%" id="fluximage">
+                    <video src="{{ url_for('video_feed') }}" width="100%" height="100%" id="fluxvideo" controls></video>
+                </div>
+            </div>
+        </article>
+        <div>
+            <button type="button" onclick="returnLive()">Live</button>
+        </div>
+        <article class="streamline">
+        <div class="timeline">
+                        <label>28 / 02 / 2021</label>
+            <div class="sblock">
+                <video src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
+                </video>
+                <img id="4" src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
+            </div>
+
+            <label>20 / 02 / 2021</label>
+            <div class="sblock">
+                <video src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
+                </video>
+                <img id="2" src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.jpg') }}" width="220" height="140" onclick="image(this)">
+                                <video src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
+                </video>
+                <img id="3" src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
+            </div>
+            <label>17 / 02 / 2021</label>
+            <div class="sblock">
+                <video src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
+                </video>
+                <img id="1" src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
+            </div>
+        </div>
+        </article>
     </div>
 </body>
 

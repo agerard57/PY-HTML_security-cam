@@ -2,8 +2,8 @@ from datetime import datetime
 import cv2
 import yaml
 
-with open('srv/config/configl.yaml') as f:
-    data = yaml.load(f, Loader=yaml.FullLoader)
+with open('static/srv/config/config.dyn') as f:
+    data = yaml.safe_load(f)
 
 
 class VideoCamera(object):

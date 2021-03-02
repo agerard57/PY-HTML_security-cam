@@ -1,0 +1,32 @@
+body{
+    height : 100%;
+}
+
+.timeline{
+    width : 60%;
+    height : 100%;
+    border-left: 0.5rem solid;
+    float: right;
+    overflow: scroll;
+}
+.vstream{
+    border : 0.2rem solid;
+    width : 30%;
+    height : 480px;
+    margin: 1px;
+    float: left;
+}
+
+.sblock{
+}
+
+.streamline{
+        width : 100%;
+}
+.video{
+        float: left;
+}
+
+#fluxvideo{
+display:none;
+}
