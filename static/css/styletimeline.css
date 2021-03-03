@@ -1,12 +1,9 @@
-html{
-overflow: hidden;
-}
 body {
     height: 100%;
 }
 
 .timeline {
-    width: 60%;
+    width: 20%;
     height: 100%;
     border-left: 0.5rem solid;
     float: right;
@@ -15,7 +12,7 @@ body {
 }
 
 .vstream {
-    width: 31%;
+    width: 80%;
     float: left;
 }
 
@@ -26,6 +23,7 @@ body {
 .streamline {
     width: 100%;
     margin-bottom : 20px
+
 }
 
 .video {
@@ -54,7 +52,7 @@ body {
 }
 
 .sblock{
-    padding-left:25px;
+    display: inline-block;
 }
 
 .content{

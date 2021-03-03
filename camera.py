@@ -8,9 +8,9 @@ with open('static/srv/config/config.dyn') as f:
 
 class VideoCamera(object):
 
-    date = datetime.today().strftime('%Y%m%d-%H%M%S')
-    filename = "srv/img/"+date + "-MicroSec.avi"
-    frames = 10.0
+    date = datetime.today().strftime('%Y%m%d-%H%M%S-%f')
+    filename = "static/srv/img/"+date + ".avi"
+    frames = 15.0
     my_res = '480p'
     dims = {
         "480p": (640, 480),

@@ -57,7 +57,6 @@
                                         <option value="On">On</option>
                                         <option value="Off">Off</option>
                                     </select>
-                                    <label for="detection">On / Off</label><br /><br />
                                 </li>
                                 <li class="list-group-item">
                                     <label for="loglvl">LogLevel</label><br />
@@ -66,7 +65,6 @@
                                         <option value="WARNING">WARNING</option>
                                         <option value="DEBUG">DEBUG</option>
                                     </select>
-                                    <label for="loglvl">INFO / WARNING / DEBUG</label><br /><br />
                                 </li>
                                 <li class="list-group-item">
                                     <label for="streaming">Streaming</label><br />
@@ -74,7 +72,6 @@
                                         <option value="On">On</option>
                                         <option value="Off">Off</option>
                                     </select>
-                                    <label for="streaming">On / Off</label><br /><br />
                                 </li>
                                 <li class="list-group-item">
                                     <label for="recording">Recording</label><br />
@@ -82,7 +79,6 @@
                                         <option value="On">On</option>
                                         <option value="Off">Off</option>
                                     </select>
-                                    <label for="recording">On / Off</label><br /><br />
                                 </li>
                                 <li class="list-group-item">
                                     <label for="alerting">Jeedom Alerting</label><br />
@@ -90,7 +86,6 @@
                                         <option value="On">On</option>
                                         <option value="Off">Off</option>
                                     </select>
-                                    <label for="alerting">On / Off</label><br /><br />
                                 </li>
                                 <li class="list-group-item">
                                     <h4>PURGE</h4><br />
@@ -119,7 +114,7 @@
     <div class="content">
         <article class="streamline">
 
-            <div class="vstream">
+            <div class="vstream" >
                 <div>
                     <img src="{{ url_for('video_feed') }}" width="100%" height="100%" id="fluximage">
                     <video src="{{ url_for('video_feed') }}" width="100%" height="100%" id="fluxvideo" controls></video>
@@ -129,28 +124,14 @@
 
         <article class="streamline streamtime" scrolling="auto">
             <div class="timeline">
-                <label>28 / 02 / 2021</label>
+                {% for name in images_list %}
+                <h2>{{ name[6:8] + '/' + name[4:6] + '/' + name[0:4]}}</h2>
+                <h3>{{ name[9:11] + 'h'}}</h3>
                 <div class="sblock">
-                    <video src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.avi') }}" width="220"
-                        height="140" class="video" onclick="fvideo(this)">
-                    </video><br /><br />
+                    <img src="{{ url_for('static', filename= 'srv/img/' + name) }}" width="220"
+                        height="140" class="video" onclick="fvideo(this)"><br /><br />
                 </div>
-
-                <label>20 / 02 / 2021</label>
-                <div class="sblock">
-                    <video src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.avi') }}" width="220"
-                        height="140" class="video" onclick="fvideo(this)">
-                    </video>
-                    <video src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.avi') }}" width="220"
-                        height="140" class="video" onclick="fvideo(this)">
-                    </video><br /><br />
-                </div>
-                <label>17 / 02 / 2021</label>
-                <div class="sblock">
-                    <video src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.avi') }}" width="220"
-                        height="140" class="video" onclick="fvideo(this)">
-                    </video><br /><br />
-                </div>
+                {% endfor %}
             </div>
         </article>
     </div>
