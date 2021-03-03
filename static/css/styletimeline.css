@@ -1,37 +1,64 @@
-body{
-    height : 100%;
+body {
+    height: 100%;
 }
 
-.timeline{
-    width : 60%;
-    height : 100%;
+.timeline {
+    width: 60%;
+    height: 100%;
     border-left: 0.5rem solid;
     float: right;
+    padding-left : 15px;
     overflow: scroll;
 }
-.vstream{
-    border : 0.2rem solid;
-    width : 30%;
-    height : 480px;
-    margin: 1px;
+
+.vstream {
+    width: 30%;
     float: left;
 }
 
-.streamline{
-        width : 100%;
-}
-.video{
-        float: left;
+.content {
+    margin-top: 10px;
 }
 
-.logo{
+.streamline {
+    width: 100%;
+    margin-bottom : 20px
+}
+
+.video {
+    float: left;
+}
+
+.logo {
     -webkit-filter: invert(1);
     filter: invert(1);
 }
-.name{
-    color:white
+
+.name {
+    color: white !important;
 }
 
-#fluxvideo{
-display:none;
+.bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.live {
+        width: 30%;
+        margin-bottom: 5px;
+        margin-left: 20px ;
+}
+
+.sblock{
+    padding-left:25px;
+}
+
+.content{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#fluxvideo {
+    display: none;
 }

@@ -23,17 +23,17 @@
 
 <body onload="initial('{{ detect }}', '{{ log }}', '{{ stream }}', '{{ record }}', '{{ jalert }}')">
     <header>
-        <nav class="navbar navbar-light  bg-dark">
+        <nav class="navbar navbar-light bg-dark bar">
             <a class="navbar-brand name" href="#">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/OOjs_UI_icon_camera.svg" width="30"
                     height="30" class="d-inline-block align-top logo" alt="">
-                IP Camera                
+                IP Camera
             </a>
             <button type="button" class="btn btn-info btn-lg settings" data-toggle="modal"
                 data-target="#myModal">Settings</button>
         </nav>
     </header>
-    <div class="container">
+    <div class="container content">
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -102,7 +102,6 @@
                             </ul>
                             <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" value="Submit">
-
                                 <div class="text-center">
                                     <a href="/get_live"><input type="button" value="Live"></a>
                                 </div>
@@ -114,8 +113,10 @@
         </div>
         <!--Modal-->
     </div>
-    </div>
     <div>
+        <button type="button" class="btn btn-outline-secondary live" onclick="returnLive()">Live</button>
+    </div>
+    <div class="content">
         <article class="streamline">
 
             <div class="vstream">
@@ -125,10 +126,8 @@
                 </div>
             </div>
         </article>
-        <div>
-            <button type="button" onclick="returnLive()">Live</button>
-        </div>
-        <article class="streamline">
+
+        <article class="streamline streamtime" scrolling="auto">
             <div class="timeline">
                 <label>28 / 02 / 2021</label>
                 <div class="sblock">
