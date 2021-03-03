@@ -17,14 +17,19 @@ body{
     float: left;
 }
 
-.sblock{
-}
-
 .streamline{
         width : 100%;
 }
 .video{
         float: left;
+}
+
+.logo{
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+.name{
+    color:white
 }
 
 #fluxvideo{

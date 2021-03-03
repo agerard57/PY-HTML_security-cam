@@ -23,17 +23,17 @@
 
 <body onload="initial('{{ detect }}', '{{ log }}', '{{ stream }}', '{{ record }}', '{{ jalert }}')">
     <header>
-        <nav class="navbar navbar-light menu">
-            <a class="navbar-brand" href="#">
+        <nav class="navbar navbar-light  bg-dark">
+            <a class="navbar-brand name" href="#">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/OOjs_UI_icon_camera.svg" width="30"
-                    height="30" class="d-inline-block align-top" alt="">
-                IP Camera
+                    height="30" class="d-inline-block align-top logo" alt="">
+                IP Camera                
             </a>
+            <button type="button" class="btn btn-info btn-lg settings" data-toggle="modal"
+                data-target="#myModal">Settings</button>
         </nav>
     </header>
     <div class="container">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Settings</button>
-
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -48,7 +48,7 @@
                                 <li class="list-group-item">
                                     <h4>CAMERA</h4><br />
                                     <label>videolive = </label><br /><br />
-                                    <input type="text" id="videolive" name="videolive" size="70" value="{{ vlive }}"/>
+                                    <input type="text" id="videolive" name="videolive" size="70" value="{{ vlive }}" />
                                 </li>
                                 <li class="list-group-item">
                                     <h4>DETECTION</h4><br />
@@ -95,24 +95,25 @@
                                 <li class="list-group-item">
                                     <h4>PURGE</h4><br />
                                     <label>RetentionPeriod = </label>
-                                    <input type="text" id="retentionperiod" name="retentionperiod" value="{{ retperiod }}"/>
+                                    <input type="text" id="retentionperiod" name="retentionperiod"
+                                        value="{{ retperiod }}" />
                                     <label> (nombre de jours)</label><br /><br />
                                 </li>
                             </ul>
-                    <div class="modal-footer">
-                        <input class="btn btn-success" type="submit" value="Submit">
+                            <div class="modal-footer">
+                                <input class="btn btn-success" type="submit" value="Submit">
 
-                        <div class="text-center">
-                                <a href="/get_live"><input type="button" value="Live"></a>
-                        </div>
-                    </div>
+                                <div class="text-center">
+                                    <a href="/get_live"><input type="button" value="Live"></a>
+                                </div>
+                            </div>
                         </form>
-                    </div>
                     </div>
                 </div>
             </div>
-        <!--Modal-->
         </div>
+        <!--Modal-->
+    </div>
     </div>
     <div>
         <article class="streamline">
@@ -128,30 +129,38 @@
             <button type="button" onclick="returnLive()">Live</button>
         </div>
         <article class="streamline">
-        <div class="timeline">
-                        <label>28 / 02 / 2021</label>
-            <div class="sblock">
-                <video src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
-                </video>
-                <img id="4" src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
-            </div>
+            <div class="timeline">
+                <label>28 / 02 / 2021</label>
+                <div class="sblock">
+                    <video src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.avi') }}" width="220"
+                        height="140" class="video" onclick="fvideo(this)">
+                    </video>
+                    <img id="4" src="{{ url_for('static', filename= 'srv/img/20210228-230002-014525.jpg') }}"
+                        width="220" height="140" onclick="image(this)"><br /><br />
+                </div>
 
-            <label>20 / 02 / 2021</label>
-            <div class="sblock">
-                <video src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
-                </video>
-                <img id="2" src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.jpg') }}" width="220" height="140" onclick="image(this)">
-                                <video src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
-                </video>
-                <img id="3" src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
+                <label>20 / 02 / 2021</label>
+                <div class="sblock">
+                    <video src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.avi') }}" width="220"
+                        height="140" class="video" onclick="fvideo(this)">
+                    </video>
+                    <img id="2" src="{{ url_for('static', filename= 'srv/img/20210220-101010-254687.jpg') }}"
+                        width="220" height="140" onclick="image(this)">
+                    <video src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.avi') }}" width="220"
+                        height="140" class="video" onclick="fvideo(this)">
+                    </video>
+                    <img id="3" src="{{ url_for('static', filename= 'srv/img/20210220-200002-104887.jpg') }}"
+                        width="220" height="140" onclick="image(this)"><br /><br />
+                </div>
+                <label>17 / 02 / 2021</label>
+                <div class="sblock">
+                    <video src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.avi') }}" width="220"
+                        height="140" class="video" onclick="fvideo(this)">
+                    </video>
+                    <img id="1" src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.jpg') }}"
+                        width="220" height="140" onclick="image(this)"><br /><br />
+                </div>
             </div>
-            <label>17 / 02 / 2021</label>
-            <div class="sblock">
-                <video src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.avi') }}" width="220" height="140" class="video" onclick="fvideo(this)">
-                </video>
-                <img id="1" src="{{ url_for('static', filename= 'srv/img/20210217-053115-173589.jpg') }}" width="220" height="140" onclick="image(this)"><br /><br />
-            </div>
-        </div>
         </article>
     </div>
 </body>
