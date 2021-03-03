@@ -20,7 +20,6 @@ class VideoCamera(object):
 
     def __init__(self):
         self.video = cv2.VideoCapture(data[0]['CAMERA'][0])
-        '''self.video = cv2.VideoCapture('rtsp://192.168.1.10:8080')'''
 
     def __del__(self):
         self.video.release()
