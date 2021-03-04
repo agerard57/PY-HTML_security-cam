@@ -5,6 +5,7 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styletimeline.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -110,7 +111,7 @@
     </div>
     <div class="content">
         <article class="streamline">
-            <div>
+            <div class="centerlive">
                 <div>
                     <img class="flux" src="{{ url_for('video_feed') }}" id="fluximage">
                     <video class="flux" src="{{ url_for('video_feed') }}" id="fluxvideo" controls></video>
@@ -119,13 +120,13 @@
         </article>
 
         <article class="timeline">
-            <div>
+            <div class="center">
                 {% for name in images_list %}
-                <div>
+                <div class="borderimg">
                     <h3>{{ name[6:8] + '/' + name[4:6] + '/' + name[0:4]}}</h3>
                     <h4>{{ name[9:11] + 'h'}}</h4>
-                    <img src="{{ url_for('static', filename= 'srv/img/' + name) }}" width="140"
-                        height="80" class="video" onclick="fvideo(this)"><br /><br />
+                    <img src="{{ url_for('static', filename= 'srv/img/' + name) }}" width="160"
+                        height="100" class="video" onclick="fvideo(this)"><br /><br />
                 </div>
                 {% endfor %}
             </div>

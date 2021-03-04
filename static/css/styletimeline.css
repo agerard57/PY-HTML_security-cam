@@ -1,5 +1,6 @@
 body {
-    height: 50%;
+    width: 1400px;
+    height: 700px;
 }
 
 .timeline {
@@ -36,7 +37,7 @@ body {
 }
 
 .live {
-        width: 30%;
+        width: 50%;
         margin-bottom: 5px;
         margin-left: 20px ;
 }
@@ -49,14 +50,31 @@ body {
 #fluxvideo {
     display: none;
 }
-#fluximage{
-    margin: auto;
-}
 .flux{
     margin: auto;
     width: 70%;
     height: auto;
 }
-.positionimg{
-    float: right;
+.centerlive{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+.center{
+    margin: 0 auto;
+    width: 100%;
+    background-color: lightgray;
+    text-align: center;
+}
+.center h3{
+    font-size: 25px;
+    text-align: center;
+}
+.center h4{
+    font-size: 18px;
+    text-align: center;
+}
+.borderimg{
+
+    border-style: outset;
 }
