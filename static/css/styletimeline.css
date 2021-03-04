@@ -37,9 +37,9 @@ body {
 }
 
 .live {
-        width: 50%;
-        margin-bottom: 5px;
-        margin-left: 20px ;
+    width: 50%;
+    margin-bottom: 5px;
+    margin-left: 20px ;
 }
 
 .content{
@@ -52,7 +52,7 @@ body {
 }
 .flux{
     margin: auto;
-    width: 70%;
+    width: 73.5%;
     height: auto;
 }
 .centerlive{

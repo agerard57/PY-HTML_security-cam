@@ -8,7 +8,7 @@ app = Flask(__name__)
 '''videolive = 'rtsp://admin:admin@192.168.1.10:8554/live'''
 
 with open('static/srv/config/config.dyn') as f:
-    data = yaml.load(f, Loader=yaml.FullLoader)
+    data = yaml.safe_load(f)
 
 vl = data[0]['CAMERA'][0]
 dt = data[1]['DETECTION'][0]
