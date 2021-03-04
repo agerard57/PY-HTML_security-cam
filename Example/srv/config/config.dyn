@@ -1,0 +1,10 @@
+[CAMERA]
+videolife = rtsp://192.169.9.12:554/12
+[DETECTION]
+detection = On
+loglevel = INFO
+streaming = On
+recording = Off
+jeealert = On
+[PURGE]
+RetentionPeriod = 180
