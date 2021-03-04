@@ -64,6 +64,7 @@
                                     <select name="log" id="loglvl">
                                         <option value="INFO">INFO</option>
                                         <option value="WARNING">WARNING</option>
+                                        <option value="ERROR">ERROR</option>
                                         <option value="DEBUG">DEBUG</option>
                                     </select>
                                 </li>
@@ -112,10 +113,8 @@
     <div class="content">
         <article class="streamline">
             <div class="centerlive">
-                <div>
                     <img class="flux" src="{{ url_for('video_feed') }}" id="fluximage">
                     <video class="flux" src="{{ url_for('video_feed') }}" id="fluxvideo" controls></video>
-                </div>
             </div>
         </article>
 

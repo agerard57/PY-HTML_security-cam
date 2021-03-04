@@ -1,3 +1,5 @@
+
+//Initialisation des paramètres
 function initial(detect, log, stream, record, jalert){
     document.getElementById("detection").value = detect;
     document.getElementById("loglvl").value = log;
@@ -6,9 +8,10 @@ function initial(detect, log, stream, record, jalert){
     document.getElementById("alerting").value = jalert;
     if (stream == "Off"){
         document.getElementById("fluximage").style.display = "none";
-        console.log("ca marche")
+        console.log("ça marche")
     }
 }
+//Affichage du live
 function returnLive(stream){
     if (stream == "On"){
         document.getElementById("fluximage").style.display = "block";
@@ -20,6 +23,7 @@ function returnLive(stream){
     }
 
 }
+//Affichage des vidéo
 function fvideo(event){
     const newsrc = event.src.substring(0,event.src.lastIndexOf("."))
     document.getElementById("fluxvideo").style.display = "block";
